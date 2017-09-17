@@ -7,7 +7,7 @@ const meow = require('meow')
 const chalk = require('chalk')
 const mkdirp = require('mkdirp')
 const isBlank = require('is-blank')
-const isPresnet = require('is-present')
+const isPresent = require('is-present')
 const fileExists = require('file-exists')
 const cssstats = require('cssstats')
 const trailingLines = require('single-trailing-newline')
@@ -47,7 +47,7 @@ const outputFile = cli.input[1]
 
 if (cli.flags.new) {
   console.log('Generating a new Tachyons project')
-  const projDir = cli.flags.new == true ? 'tachyons-project' : cli.flags.new
+  const projDir = cli.flags.new === true ? 'tachyons-project' : cli.flags.new
 
   mkdirp.sync(projDir)
   mkdirp.sync(projDir + '/src')
@@ -58,10 +58,10 @@ if (cli.flags.new) {
   const readme = fs.readFileSync(__dirname + '/templates/new/readme.md', 'utf8')
   const style = fs.readFileSync(__dirname + '/templates/new/src/styles.css', 'utf8')
 
-  fs.writeFileSync(projDir + '/index.html', index)
-  fs.writeFileSync(projDir + '/package.json', pkg)
-  fs.writeFileSync(projDir + '/readme.md', readme)
-  fs.writeFileSync(projDir + '/src/styles.css', style)
+  fs.writeFileSync(projDir + 'index.html', index)
+  fs.writeFileSync(projDir + 'package.json', pkg)
+  fs.writeFileSync(projDir + 'readme.md', readme)
+  fs.writeFileSync(projDir + 'src/styles.css', style)
 
   console.log('New project located in ' + projDir)
   process.exit(0)
